@@ -1,0 +1,16 @@
+ .quadradinhos{
+            background-color: aqua;
+            width: 50%;
+            height: 100px;
+            margin: 30px;
+}
+#quadradao{
+    background-color: black;
+    width: 100px;
+    height: 50px;
+}
+#quadradao:hover{
+    transition: 0.5s;
+    transform: scale(1.5);
+    rotate: 360deg;
+}
