@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Análise de Produtos</title>
+</head>
+<body>
+
+        <div class="box">
+            <div class="cabeçalho">
+                <h1>Painel de Análise de Produtos</h1>
+            </div>
+
+            <div class="entradas">
+                <input id="caro" ,type="text", placeholder="Nome do Produto">
+                <input id="qntd" ,type="text", placeholder="Preço (R$)">
+                <input id="estoqueTotal" ,type="text", placeholder="Quantidade">
+                <button id="button">Adicionar Produto</button>
+            </div>
+
+            <div class="cartoes">
+
+                <!-- produto mais caro -->
+                <div class="cartao" style="background-color: orange;">
+                    <div class="topo mais-caro">
+                        <p>Produto Mais Caro</p>
+                    </div>
+                    <div class="corpo"></div>
+                </div>
+
+                <!-- maior quantidade -->
+                <div class="cartao" style="background-color: green;">
+                    <div class="topo maior-qntd">
+                        <p>Maior Quantidade</p>
+                    </div>
+                    <div class="corpo"></div>
+                </div>
+
+                <!-- Valor total em estoque -->
+                <div class="cartao" style="background-color: rgb(65, 65, 228);">
+                    <div class="topo valor-total">
+                        <p>Valor Total em Estoque</p>
+                    </div>
+                    <div class="corpo"></div>
+                </div>
+            </div>
+        </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
