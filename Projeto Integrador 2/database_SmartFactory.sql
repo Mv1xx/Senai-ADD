@@ -46,7 +46,13 @@ DROP TABLE IF EXISTS `equipamento`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `equipamento` (
   `id_equipamento` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_equipamento`)
+  `nome_equipamento` varchar(50) NOT NULL,
+  `fabricante` varchar(50) DEFAULT NULL,
+  `fk_setor` int DEFAULT NULL,
+  `status_equipamento` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_equipamento`),
+  KEY `fk_setor` (`fk_setor`),
+  CONSTRAINT `fk_setor` FOREIGN KEY (`fk_setor`) REFERENCES `setor` (`id_setor`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -90,7 +96,15 @@ DROP TABLE IF EXISTS `sensor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sensor` (
   `id_sensor` int NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`id_sensor`)
+  `limite_minimo` int NOT NULL,
+  `limite_maximo` int NOT NULL,
+  `fk_tipo` int DEFAULT NULL,
+  `fk_equipamento` int DEFAULT NULL,
+  PRIMARY KEY (`id_sensor`),
+  KEY `fk_tipo` (`fk_tipo`),
+  KEY `fk_equipamento` (`fk_equipamento`),
+  CONSTRAINT `fk_equipamento` FOREIGN KEY (`fk_equipamento`) REFERENCES `equipamento` (`id_equipamento`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_tipo` FOREIGN KEY (`fk_tipo`) REFERENCES `tipo_sensor` (`id_tipo_sensor`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -112,6 +126,7 @@ DROP TABLE IF EXISTS `setor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `setor` (
   `id_setor` int NOT NULL AUTO_INCREMENT,
+  `nome_setor` varchar(50) NOT NULL,
   PRIMARY KEY (`id_setor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -171,6 +186,7 @@ DROP TABLE IF EXISTS `tipo_sensor`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipo_sensor` (
   `id_tipo_sensor` int NOT NULL AUTO_INCREMENT,
+  `nome_tipo` varchar(50) NOT NULL,
   PRIMARY KEY (`id_tipo_sensor`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -193,4 +209,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-06-03 10:53:23
+-- Dump completed on 2026-06-03 11:30:48
