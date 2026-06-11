@@ -1,0 +1,11 @@
+id_equipamento;nome_equipamento;status_equipamento;fk_setor
+1;Caldeira;Manutencao;4
+2;Centro de Usinagem;Inativo;4
+3;Compressor Industrial;Ativo;6
+4;Corte Laser;Ativo;2
+5;Esteira Transportadora;Manutencao;1
+6;Fresadora CNC;Inativo;2
+7;Injetora;Inativo;6
+8;Prensa Hidraulica;Ativo;1
+9;Robo Soldador;Inativo;4
+10;Torno CNC;Manutencao;5
